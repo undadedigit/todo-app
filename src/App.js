@@ -16,6 +16,9 @@ function App() {
     active: tasks.filter((task) => !task.completed).length,
     completed: tasks.filter((task) => task.completed).length,
   };
+  const clearCompleted = () => {
+    setTasks(tasks.filter((task) => !task.completed));
+  };
   // Save tasks to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -56,6 +59,11 @@ function App() {
         onFilterChange={setFilter}
         taskCount={taskCount}
       />
+      {tasks.some((task) => task.completed) && (
+        <button className="clear-completed" onClick={clearCompleted}>
+          Clear Completed
+        </button>
+      )}
       <TaskList
         tasks={filteredTasks}
         onToggle={toggleTask}
