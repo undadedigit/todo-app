@@ -116,3 +116,22 @@ h1 {
   margin-right: 8px;
   background-color: #f1f1f1;
 }
+.priority-select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.low-priority {
+  color: #4caf50;
+}
+
+.medium-priority {
+  color: #ff9800;
+}
+
+.high-priority {
+  color: #f44336;
+}

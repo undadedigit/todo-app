@@ -20,11 +20,23 @@ function TaskForm({ onAddTask }) {
         onChange={(e) => setText(e.target.value)}
         placeholder="Add a new task..."
       />
-      <select value={priority} onChange={(e) => setPriority(e.target.value)}>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
+
+      <select
+        value={priority}
+        onChange={(e) => setPriority(e.target.value)}
+        className="priority-select"
+      >
+        <option value="low" className="low-priority">
+          Low
+        </option>
+        <option value="medium" className="medium-priority">
+          Medium
+        </option>
+        <option value="high" className="high-priority">
+          High
+        </option>
       </select>
+
       <button type="submit">Add Task</button>
     </form>
   );
