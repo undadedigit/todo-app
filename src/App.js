@@ -24,14 +24,16 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
   // Add a new task
-  const addTask = (text) => {
+  const addTask = (text, priority = "medium") => {
     const newTask = {
       id: uuidv4(),
       text,
       completed: false,
+      priority,
     };
     setTasks([...tasks, newTask]);
   };
+
   // Toggle task completion
   const toggleTask = (id) => {
     setTasks(
