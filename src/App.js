@@ -12,6 +12,10 @@ function App() {
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
   const [filter, setFilter] = useState("all");
+  const taskCount = {
+    active: tasks.filter((task) => !task.completed).length,
+    completed: tasks.filter((task) => task.completed).length,
+  };
   // Save tasks to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -47,7 +51,11 @@ function App() {
     <div className="todo-app">
       <h1>React To-Do App</h1>
       <TaskForm onAddTask={addTask} />
-      <FilterButtons currentFilter={filter} onFilterChange={setFilter} />
+      <FilterButtons
+        currentFilter={filter}
+        onFilterChange={setFilter}
+        taskCount={taskCount}
+      />
       <TaskList
         tasks={filteredTasks}
         onToggle={toggleTask}
